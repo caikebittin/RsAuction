@@ -1,0 +1,6 @@
+@RsAuction_HostAddress = http://localhost:5219
+
+GET {{RsAuction_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
