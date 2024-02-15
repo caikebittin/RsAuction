@@ -1,26 +1,26 @@
-﻿using RsAuction.Entities;
-using RsAuction.Repositories;
+﻿using RsAuction.Contracts;
+using RsAuction.Entities;
 
 namespace RsAuction.Services;
 
 public class LoggedUser
 {
     private readonly IHttpContextAccessor _httpcontextAccessor;
+    private readonly IUserRepository _repository;
 
-    public LoggedUser(IHttpContextAccessor httpContext)
+    public LoggedUser(IHttpContextAccessor httpContext, IUserRepository repository)
     {
         _httpcontextAccessor = httpContext;
+        _repository = repository;
     }
 
     public User User()
     {
-        var repository = new RsAuctionDbContext();
-
         var token = TokenOnRequest();
 
         var email = FromBase64String(token);
 
-        return repository.Users.First(user => user.Email.Equals(email));
+        return _repository.GetUserByEmail(email);
     }
 
     private string TokenOnRequest()

@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using RsAuction.Contracts;
 using RsAuction.Filters;
+using RsAuction.Repositories;
+using RsAuction.Repositories.DataAccess;
 using RsAuction.Services;
+using RsAuction.UseCases.Auctions.GetCurrent;
 using RsAuction.UseCases.Offers.CreateOffer;
 using System.Security.Cryptography.Xml;
 
@@ -43,6 +48,15 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddScoped<AuthenticationUserAttribute>();
 builder.Services.AddScoped<LoggedUser>();
 builder.Services.AddScoped<CreateOfferUseCase>();
+builder.Services.AddScoped<GetCurrentAuctionUseCase>();
+builder.Services.AddScoped<IAuctionRepository ,AuctionRepository>();
+builder.Services.AddScoped<IOfferRepository ,OfferRepository>();
+builder.Services.AddScoped<IUserRepository ,UserRepository>();
+
+builder.Services.AddDbContext<RsAuctionDbContext>(options =>
+{
+    options.UseSqlite(@"Data Source=C:\Teste\leilaoDbNLW.db");
+});
 
 builder.Services.AddHttpContextAccessor();
 
