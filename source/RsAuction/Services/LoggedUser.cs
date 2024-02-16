@@ -3,7 +3,7 @@ using RsAuction.Entities;
 
 namespace RsAuction.Services;
 
-public class LoggedUser
+public class LoggedUser : ILoggedUser
 {
     private readonly IHttpContextAccessor _httpcontextAccessor;
     private readonly IUserRepository _repository;
