@@ -1,3 +1,7 @@
+
+[![Static Badge](https://img.shields.io/badge/Certificate-Certificate?style=for-the-badge&logo=AdGuard&logoColor=white&color=green&link=https%3A%2F%2Fapp.rocketseat.com.br%2Fcertificates%2Fc95f900d-90a0-4053-bf5d-1d238e9afa5c)](https://app.rocketseat.com.br/certificates/c95f900d-90a0-4053-bf5d-1d238e9afa5c)
+
+
 # Aplicação de Leilão 🇧🇷
 
 Este repositório contém uma aplicação back-end desenvolvida em C# com .NET, com o tema de um sistema de leilão. A aplicação implementa conceitos de Controladores, Entidades, Repositórios e Casos de Uso, utilizando o ORM Entity Framework para tradução de entidades em consultas de banco de dados. Além disso, são realizados testes unitários com dados mockados, gerados utilizando Moq e Bogus.
